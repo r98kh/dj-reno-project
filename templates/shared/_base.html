@@ -1,0 +1,35 @@
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="pixelstrap">
+    <meta name="description" content="Reno | The online tools store HTML Templates from pixelstrap">
+    <meta name="keywords" content="Reno | The online tools store HTML Templates from pixelstrap">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Site Title -->
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'shared/header_references.html' %}
+
+    <!-- Fav icon -->
+
+
+</head>
+
+<body class="rtl">
+
+<div class="ecommerce-layout">
+{% render_partial 'home_module.views.site_header_component' %}
+{% block content %}{% endblock %}
+{% render_partial 'home_module.views.site_footer_component' %}
+</div>
+
+{% include 'shared/footer_references.html' %}
+
+</body>
+
+</html>
