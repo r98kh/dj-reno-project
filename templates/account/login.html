@@ -18,11 +18,9 @@ login
                 <div class="theme-card">
                     <form method="post" class="theme-form">
                         {% csrf_token %}
-{#                        {% crispy %}#}
                         {% for field in form %}
                             <div class="form-group">
                             {{ field|addClass }}
-{#                            as_widget(attrs={'class': })#}
                             </div>
                         {% endfor %}
 
