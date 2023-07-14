@@ -36,4 +36,16 @@ class Product(models.Model):
 class productFeatures(models.Model):
     title = models.CharField(max_length=300, verbose_name='عنوان')
     value = models.CharField(max_length=300, verbose_name='مقدار')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول', related_name='features')
+
+
+class productGallery(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='محصول')
+    image = models.ImageField(upload_to='images/product-gallery', verbose_name='تصویر')
+
+    def __str__(self):
+        return self.product.title
+
+    class Meta:
+        verbose_name = 'تصویر گالری'
+        verbose_name_plural = 'گالری تصاویر'

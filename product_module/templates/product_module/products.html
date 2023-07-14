@@ -3,363 +3,221 @@
     محصولات
 {% endblock %}
 {% block content %}
-<!-- section start -->
-<section class="section-b-space cmn_bg_yellow shop_page">
+    <!-- section start -->
+    <section class="section-b-space cmn_bg_yellow shop_page">
 
-    <ul class="plus_decore">
-        <li></li>
-        <li></li>
-    </ul>
+        <ul class="plus_decore">
+            <li></li>
+            <li></li>
+        </ul>
 
-    <div class="collection-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 collection-filter">
-                    <!-- side-bar colleps block stat -->
-                    <div class="collection-filter-block sidebar">
-                        <!-- brand filter start -->
-                        <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left" aria-hidden="true"></i> بازگشت</span></div>
-                        <div class="collection-collapse-block open">
-                            <h3 class="collapse-block-title">برند</h3>
-                            <div class="collection-collapse-block-content">
-                                <div class="collection-brand-filter">
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="zara">
-                                        <label class="custom-control-label" for="zara">زارا</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="vera-moda">
-                                        <label class="custom-control-label" for="vera-moda">ورا مودا</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="forever-21">
-                                        <label class="custom-control-label" for="forever-21">برای همیشه 21</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="roadster">
-                                        <label class="custom-control-label" for="roadster">روداستر</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="only">
-                                        <label class="custom-control-label" for="only">اونلی</label>
+        <div class="collection-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 collection-filter">
+                        <!-- side-bar colleps block stat -->
+                        <div class="collection-filter-block sidebar">
+                            <!-- brand filter start -->
+                            <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
+                                                                                             aria-hidden="true"></i> بازگشت</span>
+                            </div>
+                            <div class="collection-collapse-block open">
+                                <h3 class="collapse-block-title">برند</h3>
+                                <div class="collection-collapse-block-content">
+                                    <div class="collection-brand-filter">
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="zara">
+                                            <label class="custom-control-label" for="zara">زارا</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="vera-moda">
+                                            <label class="custom-control-label" for="vera-moda">ورا مودا</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="forever-21">
+                                            <label class="custom-control-label" for="forever-21">برای همیشه 21</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="roadster">
+                                            <label class="custom-control-label" for="roadster">روداستر</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="only">
+                                            <label class="custom-control-label" for="only">اونلی</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- color filter start here -->
-                        <div class="collection-collapse-block open">
-                            <h3 class="collapse-block-title">رنگ</h3>
-                            <div class="collection-collapse-block-content">
-                                <div class="color-selector">
-                                    <ul>
-                                        <li class="color-1 active"></li>
-                                        <li class="color-2"></li>
-                                        <li class="color-3"></li>
-                                        <li class="color-4"></li>
-                                        <li class="color-5"></li>
-                                        <li class="color-6"></li>
-                                        <li class="color-7"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- price filter start here -->
-                        <div class="collection-collapse-block border-0 open">
-                            <h3 class="collapse-block-title">قیمت</h3>
-                            <div class="collection-collapse-block-content">
-                                <div class="collection-brand-filter">
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="hundred">
-                                        <label class="custom-control-label" for="hundred">10 تومان - 100 تومان</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="twohundred">
-                                        <label class="custom-control-label" for="twohundred">100 تومان - 200 تومان</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="threehundred">
-                                        <label class="custom-control-label" for="threehundred">200 تومان - 300 تومان</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="fourhundred">
-                                        <label class="custom-control-label" for="fourhundred">300 تومان - 400 تومان</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="fourhundredabove">
-                                        <label class="custom-control-label" for="fourhundredabove">بالاتر از 400 تومان</label>
+                            <!-- color filter start here -->
+                            <div class="collection-collapse-block open">
+                                <h3 class="collapse-block-title">رنگ</h3>
+                                <div class="collection-collapse-block-content">
+                                    <div class="color-selector">
+                                        <ul>
+                                            <li class="color-1 active"></li>
+                                            <li class="color-2"></li>
+                                            <li class="color-3"></li>
+                                            <li class="color-4"></li>
+                                            <li class="color-5"></li>
+                                            <li class="color-6"></li>
+                                            <li class="color-7"></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- side-bar single product slider start -->
-                        <div class="theme-card">
-                            <h5 class="title-border">محصول جدید</h5>
-                            <div class="offer-slider slide-1">
-                                <div>
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="assets/images/pro/1.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
-                                    </div>
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="assets/images/pro/2.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
-                                    </div>
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="assets/images/pro/3.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
+                            <!-- price filter start here -->
+                            <div class="collection-collapse-block border-0 open">
+                                <h3 class="collapse-block-title">قیمت</h3>
+                                <div class="collection-collapse-block-content">
+                                    <div class="collection-brand-filter">
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="hundred">
+                                            <label class="custom-control-label" for="hundred">10 تومان - 100
+                                                تومان</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="twohundred">
+                                            <label class="custom-control-label" for="twohundred">100 تومان - 200
+                                                تومان</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="threehundred">
+                                            <label class="custom-control-label" for="threehundred">200 تومان - 300
+                                                تومان</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="fourhundred">
+                                            <label class="custom-control-label" for="fourhundred">300 تومان - 400
+                                                تومان</label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="fourhundredabove">
+                                            <label class="custom-control-label" for="fourhundredabove">بالاتر از 400
+                                                تومان</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- side-bar single product slider start -->
+                            <div class="theme-card">
+                                <h5 class="title-border">محصول جدید</h5>
+                                <div class="offer-slider slide-1">
+                                    <div>
+                                        <div class="media">
+                                            <a href="#"><img class="img-fluid" src="assets/images/pro/1.jpg" alt=""></a>
+                                            <div class="media-body align-self-center">
+                                                <div class="rating"><i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
+                                                <h4>500000تومان</h4></div>
+                                        </div>
+                                        <div class="media">
+                                            <a href="#"><img class="img-fluid" src="assets/images/pro/2.jpg" alt=""></a>
+                                            <div class="media-body align-self-center">
+                                                <div class="rating"><i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
+                                                <h4>500000تومان</h4></div>
+                                        </div>
+                                        <div class="media">
+                                            <a href="#"><img class="img-fluid" src="assets/images/pro/3.jpg" alt=""></a>
+                                            <div class="media-body align-self-center">
+                                                <div class="rating"><i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                                                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                                                <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
+                                                <h4>500000تومان</h4></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- side-bar single product slider end -->
                         </div>
-                        <!-- side-bar single product slider end -->
+                        <div class="collection-sidebar-banner">
+                            <a href="#"><img src="assets/images/side-a-banner-1.jpg" class="img-fluid" alt=""></a>
+                        </div>
+                        <!-- side-bar banner end here -->
                     </div>
-                    <div class="collection-sidebar-banner">
-                        <a href="#"><img src="assets/images/side-a-banner-1.jpg" class="img-fluid" alt=""></a>
-                    </div>
-                    <!-- side-bar banner end here -->
-                </div>
-                <div class="collection-content col">
-                    <div class="page-main-content">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="top-banner-wrapper">
-                                    <a href="#"><img src="assets/images/side-banner.jpg" class="img-fluid" alt=""></a>
-                                    <div class="top-banner-content small-section">
-                                        <h4>مد روز</h4>
-                                        <h5>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است.</h5>
-                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                    </div>
-                                </div>
-                                <div class="collection-product-wrapper">
-                                    <div class="product-top-filter">
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i class="fa fa-filter" aria-hidden="true"></i> فیلتر</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="product-filter-content">
-                                                    <div class="search-count">
-                                                        <h5>نمایش محصولات 1-24 از 10 نتیجه</h5>
-                                                    </div>
-                                                    <div class="product-page-per-view">
-                                                        <select>
-                                                            <option value="High to low">24 محصول در هر صفحه</option>
-                                                            <option value="Low to High">50 محصول در هر صفحه</option>
-                                                            <option value="Low to High">100 محصول در هر صفحه</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="product-page-filter">
-                                                        <select>
-                                                            <option value="High to low">مرتب سازی آیتم ها</option>
-                                                            <option value="Low to High">50 محصول</option>
-                                                            <option value="Low to High">100 محصول</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
+                    <div class="collection-content col">
+                        <div class="page-main-content">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="top-banner-wrapper">
+                                        <a href="#"><img src="assets/images/side-banner.jpg" class="img-fluid"
+                                                         alt=""></a>
+                                        <div class="top-banner-content small-section">
+                                            <h4>مد روز</h4>
+                                            <h5>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است.</h5>
+                                            <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم متن
+                                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                                                است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                                                و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود
+                                                ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و
+                                                آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت
+                                                بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
+                                                زبان فارسی ایجاد کرد.</p>
                                         </div>
                                     </div>
-                                    <div class="product-wrapper-grid">
-                                        <div class="row">
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/1.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div>
-                                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                            <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                            <h4>500000تومان</h4>
-                                                        </div>
+                                    <div class="collection-product-wrapper">
+                                        <div class="product-top-filter">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i
+                                                            class="fa fa-filter" aria-hidden="true"></i> فیلتر</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/3.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="product-filter-content">
+                                                        <div class="search-count">
+                                                            <h5>نمایش محصولات 1-24 از 10 نتیجه</h5>
                                                         </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/9.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
+                                                        <div class="product-page-per-view">
+                                                            <select>
+                                                                <option value="High to low">24 محصول در هر صفحه</option>
+                                                                <option value="Low to High">50 محصول در هر صفحه</option>
+                                                                <option value="Low to High">100 محصول در هر صفحه
+                                                                </option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/11.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
+                                                        <div class="product-page-filter">
+                                                            <select>
+                                                                <option value="High to low">مرتب سازی آیتم ها</option>
+                                                                <option value="Low to High">50 محصول</option>
+                                                                <option value="Low to High">100 محصول</option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/1.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/27.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/1.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="/static/images/pro/20.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-6 col-grid-box">
-                                                <div class="product-box" data-aos="zoom-out">
-                                                    <div class="img-wrapper">
-                                                        <div class="front">
-                                                            <a href="#"><img src="assets/images/pro/1.jpg" class="img-fluid" alt=""></a>
-                                                            <div>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search" title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                                                <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <a></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-detail">
-                                                        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div><a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                                        <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک نمونه نمونه</p>
-                                                        <h4>500000تومان</h4>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="product-wrapper-grid">
+                                            <div class="row">
+                                                {% for product in product_list %}
+                                                    {% include 'product_module/include/product_item.html' %}
+                                                {% endfor %}
 
-                                    <!-- pagination Start -->
-                                    <div class="pagination_sec">
-                                        <div class="content_detail__pagination cdp">
-                                            <a href="#" class="cdp_i"><i class="fa fa-angle-double-left" aria-hidden="true"></i>قبلی</a>
-                                            <a href="#" class="cdp_i">1</a>
-                                            <a href="#" class="cdp_i">2</a>
-                                            <a href="#" class="cdp_i">3</a>
-                                            <a href="#" class="cdp_i">بعدی<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- pagination End -->
 
+                                        <!-- pagination Start -->
+                                        <div class="pagination_sec">
+                                            <div class="content_detail__pagination cdp">
+                                                <a href="#" class="cdp_i"><i class="fa fa-angle-double-left"
+                                                                             aria-hidden="true"></i>قبلی</a>
+                                                <a href="#" class="cdp_i">1</a>
+                                                <a href="#" class="cdp_i">2</a>
+                                                <a href="#" class="cdp_i">3</a>
+                                                <a href="#" class="cdp_i">بعدی<i class="fa fa-angle-double-right"
+                                                                                 aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                        <!-- pagination End -->
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -367,7 +225,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- section End -->
+    </section>
+    <!-- section End -->
 {% endblock %}
