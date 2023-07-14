@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'user_module.templatetags',
     'blogs_module',
+    'contactus_module',
+    'aboutus_module',
 
 ]
 
