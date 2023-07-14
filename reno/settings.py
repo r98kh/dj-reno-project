@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'product_module',
     'allauth',
     'allauth.account',
-    'user_module.templatetags'
+    'user_module.templatetags',
+    'blogs_module',
+
 ]
 
 MIDDLEWARE = [

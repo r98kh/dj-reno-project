@@ -1,0 +1,60 @@
+{% extends "shared/_base.html" %}
+{% load dateTimeFormater %}
+{% block title %}
+    Blogs
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- News Start -->
+    <section class="home_1_news blog_page cmn_bg">
+        <ul class="plus_decore">
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container">
+            <div class="row">
+                {% for blogs in blogs_list %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="news_sec" data-aos="fade-up"
+                             data-aos-anchor-placement="top-bottom"
+                             data-aos-duration="2100"
+                        >
+                            <figure class="snip_con">
+                                <img src="{{ blogs.image.url }}" alt="" class="img-fluid blur-up lazyload ">
+                            </figure>
+                            <div class="text_p">
+                                <div class="date_sec">
+                                    <div>
+                                        <h4>{{ blogs.created_date|dateFormat|last }}</h4>
+                                        <h6>{{ blogs.created_date|dateFormat|first }}</h6>
+                                    </div>
+                                </div>
+                                <a href="{% url 'blog-details-view' slug=blogs.slug %}"><h4>{{ blogs.title }}</h4></a>
+                                <p>{{ blogs.description|truncatewords:20}}
+                                </p>
+                                <h6 class="readmore"><a href="{% url 'blog-details-view' slug=blogs.slug %}">ادامه مطلب</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <!-- pagination Start -->
+        <div class="pagination_sec">
+            <div class="content_detail__pagination cdp text-center">
+                <a href="#" class="cdp_i"><i class="fa fa-angle-double-left" aria-hidden="true"></i>قبلی</a>
+                <a href="#" class="cdp_i">1</a>
+                <a href="#" class="cdp_i">2</a>
+                <a href="#" class="cdp_i">3</a>
+                <a href="#" class="cdp_i">بعدی<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <!-- pagination End -->
+    </section>
+    <!-- News Start -->
+
+{% endblock %}
