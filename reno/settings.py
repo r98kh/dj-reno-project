@@ -49,8 +49,6 @@ INSTALLED_APPS = [
     'blogs_module',
     'contactus_module',
     'aboutus_module',
-    'contactus_module',
-    'aboutus_module',
     'cart_module',
 
 ]
