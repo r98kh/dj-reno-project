@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from .models import Product
 from django.views.generic import DetailView, ListView
-from .models import productFeatures,productGallery
+from .models import productFeatures, productGallery
 
 
 # Create your views here.
@@ -10,6 +9,13 @@ class ProductsListView(ListView):
     template_name = 'product_module/products.html'
     model = Product
 
+    def get_queryset(self):
+        query = super(ProductsListView, self).get_queryset()
+        category_name = self.kwargs.get('cat')
+
+        if category_name is not None:
+            query = query.filter(category__url_title__iexact=category_name)
+        return query
 
 
 class ProductDetailView(DetailView):

@@ -137,16 +137,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="top-profile" role="tabpanel"
                                              aria-labelledby="profile-top-tab">
-                                            <p>لورم ایپسوم به راحتی متن ساختاری چاپ و نشر صنعت است. لورم ایپسوم از سال
-                                                های 1500 تاکنون استاندارد متفاوتی از استاندارد صنعت بوده است، زمانی که
-                                                یک چاپگر ناشناخته با یک نوع کابین از آن استفاده کرد و آن را برای ساخت یک
-                                                نمونه نمونه. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                                                با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
-                                                ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-                                                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در
-                                                شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-                                                تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                                                طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
+                                            <p>{{ product.description|linebreaksbr }}</p>
 
 
                                             <div class="single-product-tables">
@@ -174,7 +165,8 @@
                                         </div>
                                         <div class="tab-pane fade" id="top-review" role="tabpanel"
                                              aria-labelledby="review-top-tab">
-                                            <form class="theme-form">
+                                            <form method="post" class="theme-form">
+                                                {% csrf_token %}
                                                 <div class="form-row">
                                                     <div class="col-md-12">
                                                         <div class="media">
@@ -189,28 +181,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <label for="name">نام</label>
-                                                        <input type="text" class="form-control" id="name"
-                                                               placeholder="نام خود را وارد کنید" required>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="email">ایمیل</label>
-                                                        <input type="text" class="form-control" id="email"
-                                                               placeholder="ایمیل" required>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="review">عنوان بازبینی</label>
-                                                        <input type="text" class="form-control" id="review"
-                                                               placeholder="موارد نقد و بررسی خود را وارد کنید"
-                                                               required>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <label for="review">عنوان بازبینی</label>
-                                                        <textarea class="form-control"
-                                                                  placeholder="نظرات خود را اینجا بنویسید"
-                                                                  id="exampleFormControlTextarea1" rows="6"></textarea>
-                                                    </div>
+                                                    {{ comments }}
                                                     <div class="col-md-12">
                                                         <a class="theme_btn review_btn" href="#">ثبت نظر خود
                                                             <span class="theme_btn_eff"></span>
