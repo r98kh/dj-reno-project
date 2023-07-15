@@ -61,7 +61,7 @@
                                                     </button>
                                                 </span>
                                                     <input type="text" name="quantity" class="form-control input-number"
-                                                           value="1">
+                                                           value="1" id="product-count">
                                                     <span class="input-group-prepend">
                                                     <button type="button" class="btn quantity-right-plus"
                                                             data-type="plus" data-field="">
@@ -72,12 +72,14 @@
                                             </div>
                                         </div>
                                         <div class="product-buttons">
-                                            <a class="theme_btn" href="#">سبد خرید
+                                            <a onclick="addProductToOrder({{ product.id }})"
+                                               class="theme_btn">
                                                 <span class="theme_btn_eff"></span>
+
+                                                <i class="fa fa-shopping-cart"></i>
+                                                افزودن به سبد خرید
                                             </a>
-                                            <a class="theme_btn" href="#">خرید حالا
-                                                <span class="theme_btn_eff"></span>
-                                            </a>
+
                                         </div>
                                         <div class="border-product">
                                             <h6 class="product-title">مشخصات کالا</h6>

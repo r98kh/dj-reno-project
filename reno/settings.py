@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'user_module.templatetags',
     'blogs_module',
+    'cart_module',
 
 ]
 
