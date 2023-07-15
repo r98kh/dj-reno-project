@@ -1,0 +1,95 @@
+{% extends 'shared/_base.html' %}
+{% block title %}
+shopping cart
+{% endblock %}
+{% block content %}
+<!--section start-->
+<section class="cart-section section-b-space cmn_bg_yellow">
+
+    <ul class="plus_decore">
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table cart-table table-responsive-sm">
+                    <thead>
+                    <tr class="table-head">
+                        <th scope="col">تصویر</th>
+                        <th scope="col">نام محصول</th>
+                        <th scope="col">قیمت</th>
+                        <th scope="col">مقدار</th>
+                        <th scope="col">اقدام</th>
+                        <th scope="col">مجموع</th>
+                    </tr>
+                    </thead>
+                    {% for order in orders %}
+                        <tbody>
+                    <tr>
+                        <td>
+                            <a href="{% url 'product-detail' slug=order.product.slug %}"><img src="{{ order.product.image.url }}" alt=""></a>
+                        </td>
+                        <td><a href="{% url 'product-detail' slug=order.product.slug %}">{{ order.product.title }}</a>
+                            <div class="mobile-cart-content row">
+                                <div class="col-xs-3">
+                                    <div class="qty-box">
+                                        <div class="input-group">
+                                            <input type="text" name="quantity" class="form-control input-number" value="1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color">{{ order.product.price }}</h2></div>
+                                <div class="col-xs-3">
+                                    <h2 class="td-color"><a href="#" class="icon"><i class="fa fa-times" aria-hidden="true"></i></a></h2></div>
+                            </div>
+                        </td>
+                        <td>
+                            <h2>{{ order.product.price }}</h2></td>
+                        <td>
+                            <div class="qty-box">
+                                <div class="input-group">
+                                    <input type="number" name="quantity" class="form-control input-number" value="{{ order.count }}">
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="#" class="icon"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                        <td>
+                            <h2 class="td-color">{{ order.get_total_price }}</h2></td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+
+
+                </table>
+                <table class="table cart-table table-responsive-md">
+                    <tfoot>
+                    <tr>
+                        <td>قیمت کل :</td>
+                        <td>
+                            <h2>{{ total }}</h2></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row cart-buttons">
+            <div class="col-sm-6">
+                <a class="theme_btn rtl_r" href="#">
+                    ادامه خرید
+                    <span class="theme_btn_eff"></span>
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <a class="theme_btn" href="#">
+                    پرداخت
+                    <span class="theme_btn_eff"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--section end-->
+{% endblock %}

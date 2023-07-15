@@ -1,5 +1,6 @@
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from cart_module.models import OrderDetail, Order
 from product_module.models import Product
@@ -51,3 +52,34 @@ def add_product_to_order(request: HttpRequest):
             'confirm_button_text': 'ورود به سایت',
             'icon': 'error'
         })
+
+
+# class shoppingCart(ListView):
+#     model = Order
+#     template_name = 'cart_module/shopping_cart.html'
+#
+#     def get_context_data(self, *args, **kwargs):
+#         context = super(shoppingCart, self).get_context_data(*args, **kwargs)
+#         user_id = self.request.user.id
+#
+#         return context
+
+def shopping_cart(request: HttpRequest):
+    user_id = request.user.id
+    try:
+        user_order, created = Order.objects.get_or_create(user_id=user_id, is_paid=False)
+        cart_detail, created = OrderDetail.objects.get_or_create(order_id=user_order.id).all()
+        total = 0
+        for i in cart_detail:
+            total += i.get_total_price()
+        context = {
+            'orders': cart_detail,
+            'total': total
+
+        }
+    except:
+        context = {
+            'orders': [],
+            'total':0
+        }
+    return render(request, 'cart_module/shopping_cart.html', context)
