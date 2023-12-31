@@ -37,17 +37,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
     'phonenumber_field',
     'django_render_partial',
+    'django_social_share',
+    'allauth',
+    'allauth.account',
+    'user_module.templatetags',
     'crispy_forms',
     'user_module',
     'home_module',
     'product_module',
-    'allauth',
-    'allauth.account',
-    'user_module.templatetags',
     'blogs_module',
     'cart_module',
+    'contactus_module',
+    'comment_module',
+    'aboutus_module',
+
+
 
 ]
 

@@ -1,0 +1,94 @@
+{% extends 'shared/_base.html' %}
+{% load currency %}
+
+{% block title %}
+صورت حساب
+{% endblock %}
+{% block content %}
+<section class="section-b-space cmn_bg checkout-page">
+    <div class="container padding-cls">
+        <div class="checkout-form">
+            <form method="post">
+            {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12 col-xs-12">
+                        <div class="checkout-title">
+                            <h3>جزئیات صورتحساب</h3></div>
+                        <div class="row check-out">
+                            {% for field in user_form %}
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label class="field-label">{{ field.label }}</label>
+                                    {{field}}
+                                </div>
+                            {% endfor %}
+                            {% for field in billingdetails_form %}
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <label class="field-label">{{ field.label }}</label>
+                                    {{field}}
+                                </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12">
+                        <div class="checkout-details">
+                            <div class="order-box">
+                                <div class="title-box">
+                                    <div>مجموع <span>محصول</span></div>
+                                </div>
+                                <ul class="qty">
+                                    {% for order in order_detail %}
+                                    <li>{{ order.product.title }} × {{ order.count }} <span>{{ order.get_total_price|currency }}</span></li>
+
+                                    {% endfor %}
+                                </ul>
+                                <ul class="sub-total">
+                                    <li>مجموع کل <span class="count">{{ total|currency }}</span></li>
+                                    <li>حمل و نقل
+                                        <div class="shipping">
+                                            <div class="shopping-option">
+                                                <input type="checkbox" name="free-shipping" id="free-shipping">
+                                                <label for="free-shipping">حمل و نقل رایگان</label>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="total">
+                                    <li>مجموع <span class="count">{{ total|currency }}</span></li>
+                                </ul>
+                            </div>
+                            <div class="payment-box">
+                                <div class="upper-box">
+                                    <div class="payment-options">
+                                        <ul>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <input type="radio" name="payment-group" id="payment-1" checked="checked">
+                                                    <label for="payment-1">درگاه پرداخت<span class="small-text">به زودی</span></label>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <button type="submit" class="theme_btn">
+                                        پرداخت
+                                        <span class="theme_btn_eff"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ul class="plus_decore">
+        <li></li>
+        <li></li>
+    </ul>
+</section>
+
+{% endblock %}

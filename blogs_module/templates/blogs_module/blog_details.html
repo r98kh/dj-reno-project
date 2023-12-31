@@ -1,188 +1,133 @@
-{% extends 'shared/_base.html' %}
-{% load dateTimeFormater %}
-{% block title %}
-    {{ blog.title }}
-{% endblock %}
+{% extends 'shared/_base.html' %} {% load dateTimeFormater %} {% block title %}
+{{ blog.title }} {% endblock %} {% block content %}
 
-{% block content %}
 <!-- blog Section starts-->
 <section class="cmn_bg blog_page">
-    <ul class="plus_decore">
-        <li></li>
-        <li></li>
-    </ul>
-    <div class="container blog-shadow">
-        <div class="row">
-            <!-- blog details starts-->
-            <div class="col-sm-12">
-                <div class="single_blog_item">
-                    <div class="blog-block">
-                        <div class="blog-box">
-                            <div class="overflow-hidden"><img class="img-fluid blur-up lazyload " src="{{ blogs.image.url }}" alt="blog"></div>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h6>{{ blogs.created_date|date }}</h6><a href="#">
-                        <h3 class="blog-head">{{ blogs.title }}</h3></a>
-                        <div class="blog-divider"></div>
-                        <div class="blog-description">
-                            <p>{{ blogs.description }}</p>
-                            <h5>{{ blogs.author }}</h5>
-                            <h5 class="pull-right">10 <i class="fa fa-heart-o"></i>, 50 <i class="fa fa-comments-o"></i></h5>
-                        </div>
-                    </div>
-                </div>
+  <ul class="plus_decore">
+    <li></li>
+    <li></li>
+  </ul>
+  <div class="container1 blog-shadow">
+    <div class="row">
+      <!-- blog details starts-->
+      <div class="col-sm-12">
+        <div class="single_blog_item">
+          <div class="blog-block">
+            <div class="blog-box">
+              <div class="overflow-hidden" style="display: flex;justify-content: center;width: 100%;" >
+                <img
+                  class="img-fluid1 blur-up lazyload"
+                  src="{{ blogs.image.url }}"
+                  alt="blog"
+                  style="width: 100%;"
+                />
+              </div>
             </div>
-            <!-- blog details end-->
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="page-header-comment">نظرات :</h3>
-                <div class="comment-list blog_comment">
-                    <div class="comment_sec">
-                        <article class="row">
-                            <div class="col-12">
-                                <div class="blog_center">
-                                    <div>
-                                        <figure class="thumbnail">
-                                            <img src="assets/images/blog/blog_icon_1.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="blog_user arrow left">
-                                        <div class="panel-body">
-                                            <header class="text-left">
-                                                <div class="comment-user"><i class="fa fa-user"></i><h6>اون پسر</h6></div>
-                                                <div class="comment-date"><i class="fa fa-clock-o"></i><h6> 16 تیر 1398 </h6></div>
-                                            </header>
-                                            <div class="comment-post">
-                                                <p>
-                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی.
-                                                </p>
-                                            </div>
-                                            <a href="#" class="btn btn-default btn-sm right"><i class="fa fa-reply"></i> پاسخ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <!--Comment Sec Start-->
-                        <article class="row">
-                            <div class="col-11 offset-1">
-                                <div class="blog_center re_comment">
-                                    <div>
-                                        <figure class="thumbnail">
-                                            <img src="assets/images/blog/blog_icon_2.jpg" alt="" >
-                                        </figure>
-                                    </div>
-                                    <div class="blog_user arrow left">
-                                        <div class="panel-body">
-                                            <header class="text-left">
-                                                <div class="comment-user"><i class="fa fa-user"></i><h6> اون پسر </h6></div>
-                                                <div class="comment-date"><i class="fa fa-clock-o"></i><h6> 16 تیر 1398 </h6></div>
-                                            </header>
-                                            <div class="comment-post">
-                                                <p>
-                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                                                </p>
-                                            </div>
-                                            <a href="#" class="btn btn-default btn-sm right"><i class="fa fa-reply"></i> پاسخ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <!--Comment Sec End-->
-                    </div>
-                    <div class="comment_sec">
-                        <article class="row">
-                            <div class="col-12">
-                                <div class="blog_center">
-                                    <div>
-                                        <figure class="thumbnail">
-                                            <img src="assets/images/blog/blog_icon_3.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="blog_user arrow left">
-                                        <div class="panel-body">
-                                            <header class="text-left">
-                                                <div class="comment-user"><i class="fa fa-user"></i><h6> اون پسر </h6></div>
-                                                <div class="comment-date"><i class="fa fa-clock-o"></i><h6> 16 تیر 1398 </h6></div>
-                                            </header>
-                                            <div class="comment-post">
-                                                <p>
-                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی.
-                                                </p>
-                                            </div>
-                                            <a href="#" class="btn btn-default btn-sm right"><i class="fa fa-reply"></i> پاسخ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="comment_sec">
-                        <article class="row">
-                            <div class="col-12">
-                                <div class="blog_center">
-                                    <div>
-                                        <figure class="thumbnail">
-                                            <img src="assets/images/blog/blog_icon_2.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                    <div class="blog_user arrow left">
-                                        <div class="panel-body">
-                                            <header class="text-left">
-                                                <div class="comment-user"><i class="fa fa-user"></i><h6> اون پسر </h6></div>
-                                                <div class="comment-date"><i class="fa fa-clock-o"></i><h6> 16 تیر 1398 </h6></div>
-                                            </header>
-                                            <div class="comment-post">
-                                                <p>
-                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی.
-                                                </p>
-                                            </div>
-                                            <a href="#" class="btn btn-default btn-sm right"><i class="fa fa-reply"></i> پاسخ</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+          </div>
+          <div class="blog-text">
+            <h6>{{ blogs.created_date|date:"F j" }}</h6>
+            <a href="{% url 'blog-details-view' slug=blogs.slug %}">
+              <h3 class="blog-head">{{ blogs.title }}</h3>
+            </a>
+            <div class="blog-divider"></div>
+            <div class="blog-description">
+              <p>{{ blogs.description|linebreaks }}</p>
+              <h5>{{ blogs.author }}</h5>
+              <h5 class="pull-right">
+                {{comments.count}}<i class="fa fa-comments-o"></i>
+              </h5>
             </div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- Comment Sec End -->
-                <div class="quote_2 comment_form_sec">
-                    <div class="quote_form">
-                        <hr/>
-                        <h3 class="page-header-comment mb-4">نظرتان را بگذارید :</h3>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>نام :</label>
-                                    <input type="text" class="form-control" placeholder="نام خود را وارد کنید" required="">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">ایمیل :</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="ایمیل خود را وارد کنید" required="">
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="exampleTextarea">پیام :</label>
-                                    <textarea class="form-control msg_coment" id="exampleTextarea" rows="3" placeholder="ارسال یک نظر" required=""></textarea>
-                                </div>
-                            </div>
-                            <a class="quote_btn theme_btn" href="#">
-                                ارسال نظر
-                                <span class="theme_btn_eff"></span>
-                            </a>
-                        </form>
-                    </div>
-                </div>
-                <!-- leave comment section end-->
-            </div>
-        </div>
+      </div>
+      <!-- blog details end-->
     </div>
+    {% if comments %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="page-header-comment">نظرات :</h3>
+        <div class="comment-list blog_comment">
+          {% for comment in comments %}
+          <div class="comment_sec">
+              <article class="row">
+                <div class="col-12">
+                  <div class="blog_center">
+                    <div class="blog_user arrow left">
+                      <div class="panel-body">
+                        <header class="text-left">
+                          <div class="comment-user">
+                            <i class="fa fa-user"></i>
+                            <h6>{{ comment.user }}</h6>
+                          </div>
+                          <div class="comment-date">
+                            <i class="fa fa-clock-o"></i>
+                            <h6>{{ comment.created_date|date:"F j" }}</h6>
+                          </div>
+                        </header>
+                        <div class="comment-post">
+                          <p>
+                              {{ comment.message|linebreaksbr }}
+                          </p>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!--Comment Sec Start-->
+              
+              <!--Comment Sec End-->
+            </div>
+          {% endfor %}
+          
+          
+        </div>
+      
+      </div>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- Comment Sec End -->
+        <div class="quote_2 comment_form_sec">
+          <div class="quote_form">
+            <hr />
+            <h3 class="page-header-comment mb-4">نظرتان را بگذارید :</h3>
+            <form method="post" class="theme-form">
+              {% csrf_token %}
+              <div class="form-row">
+                  
+                  {% if user.is_authenticated %}
+    
+                  {% for field in comment_form %}
+                  <div class="col-md-12" style="margin-top: 5px;">
+                      <label>{{ field.label }}</label>
+                      {{ field }}
+                  </div>
+                  {% endfor %}
+                  
+                  <div class="col-md-12">
+                      <button class="quote_btn theme_btn">ثبت نظر خود
+                          <span class="theme_btn_eff"></span>
+                      </button>
+                  </div>
+                  {% else %}
+                  <div class="col-md-12" style="margin-top: 5px;display: flex;align-items: center;flex-direction: column;">
+                      <p>برای ثبت نظر ابتدا وارد شوید</p>
+                      <a class="theme_btn review_btn" href="{% url 'account_login' %}">ورود به سایت
+                          <span class="theme_btn_eff"></span>
+                      </a>
+                  </div>
+                  {% endif %}
+              </div>
+          </form>
+          </div>
+        </div>
+        <!-- leave comment section end-->
+      </div>
+    </div>
+  </div>
 </section>
 <!-- blog Section End-->
 {% endblock %}

@@ -24,14 +24,6 @@ login
                             </div>
                         {% endfor %}
 
-{#                        <div class="form-group">#}
-{#                            <label for="email">ایمیل</label>#}
-{#                            <input type="text" class="form-control" id="email" placeholder="ایمیل" required="">#}
-{#                        </div>#}
-{#                        <div class="form-group">#}
-{#                            <label for="review">رمزعبور</label>#}
-{#                            <input type="password" class="form-control" id="review" placeholder="رمز عبور خود را وارد کنید" required="">#}
-{#                        </div>#}
                         <button class="btn btn-solid" id="mc-submitsa" type="submit">اشتراک</button>
                     </form>
                 </div>
@@ -41,7 +33,7 @@ login
                 <div class="theme-card authentication-right">
                     <h6 class="title-font">ایجاد یک حساب کاربری</h6>
                     <p>ثبت نام برای یک حساب کاربری رایگان در فروشگاه ما. ثبت نام سریع و آسان است. این امکان را به شما می دهد تا بتوانید از فروشگاه ما سفارش دهید. برای شروع خرید ، روی ثبت نام کلیک کنید.</p>
-                    <button class="btn btn-solid" id="mc-submita" type="submit">ایجاد یک حساب کاربری</button>
+                    <a href="{% url 'account_signup' %}" class="btn btn-solid" id="mc-submita">ایجاد یک حساب کاربری</a>
                 </div>
             </div>
         </div>

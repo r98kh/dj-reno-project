@@ -1,18 +1,6 @@
-<!--Top-Section-->
-<div class="top-contact top-header commerce-layout">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 d-none d-md-block">
-                <ul class="top-header-left">
-                    <li>به فروشگاه ما خوش آمدید</li>
-                    <li><a href="#"> 50٪ تخفیف اضافی برای همه کاربران جدید</a></li>
-                </ul>
-            </div>
+{% load currency %}
 
-        </div>
-    </div>
-</div>
-<!--End-Top-Section-->
+
 <div class="main-header">
 
     <!-- Logo & Btn Section Start -->
@@ -20,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class=" col-3">
-                    <a href="ecommerce.html" class="brand-logo"><img src="/static/images/ecommerce/logo.png" alt="logo"></a>
+                    <a href="{% url 'homePage' %}" class="brand-logo"><img src="{{ logo.url }}" alt="logo"></a>
                 </div>
                 <div class="col-9">
                     <div class="nav-section">
@@ -42,6 +30,12 @@
                                 <li>
                                     <a href="{% url 'blogs-list-view' %}">وبلاگ</a>
                                 </li>
+                                <li>
+                                    <a href="{% url 'contactus_page' %}">تماس با ما</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'aboutus_page' %}">درباره ما</a>
+                                </li>
 
                             </ul>
                         </nav>
@@ -50,45 +44,33 @@
                         <i class="ti-shopping-cart-full"></i>
                         <div class="logo_content">
                             <h5 class="title">سبد خرید</h5>
-                            <h6>2 عدد - 200 تومان</h6>
+                            <h6> {{ totalPrice|currency }}</h6>
                         </div>
                         <ul class="shopping-cart">
+                            {% for order in orders %}
                             <li>
                                 <div class="media">
-                                    <a href="#"><img class="mr-3" src="/static/images/ecommerce/Product/1.jpg"
+                                    <a href="#"><img class="mr-3" src="{{ order.product.image.url }}"
                                                      alt="تصویر عمومی"></a>
                                     <div class="media-body">
                                         <a href="#">
-                                            <h5>نام آیتم</h5>
+                                            <h5>{{order.product.title}}</h5>
                                         </a>
-                                        <h5><span>1 × 10000 تومان</span></h5>
+                                        <h5><span>{{order.count}} × {{order.product.price|currency}}</span></h5>
                                     </div>
                                 </div>
                                 <div class="close-circle"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </div>
                             </li>
-                            <li>
-                                <div class="media">
-                                    <a href="#"><img class="mr-3" src="/static/images/ecommerce/Product/2.jpg"
-                                                     alt="تصویر عمومی"></a>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5>نام آیتم</h5>
-                                        </a>
-                                        <h5><span>1 × 10000 تومان</span></h5>
-                                    </div>
-                                </div>
-                                <div class="close-circle"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                </div>
-                            </li>
+                            {% endfor %}
                             <li>
                                 <div class="total">
-                                    <h5>جمع جزء : <span>20000 تومان</span></h5>
+                                    <h5>جمع جزء : <span>{{totalPrice|currency}}</span></h5>
                                 </div>
                             </li>
                             <li>
-                                <div class="buttons"><a href="shopping-cart.html" class="view-cart">سبد خرید</a> <a
-                                        href="#" class="checkout">پرداخت</a></div>
+                                <div class="buttons"><a href="{% url 'cart_list_view' %}" class="view-cart">سبد خرید</a> <a
+                                        href="{% url 'checkoutpage' %}" class="checkout">پرداخت</a></div>
                             </li>
                         </ul>
                     </div>
@@ -106,28 +88,17 @@
                     <button class="btn btn-block btn_inverse toggle-btn">
                         <i class="fa fa-bars"></i>فروشگاه بر اساس طبقه بندی
                     </button>
+                    
                 </div>
                 <div class="col-md-8 set-order-1">
-                    <form class="ecommerce-from">
+                    <form class="ecommerce-from"  method="get" action="{% url 'products-list' %}">
                         <div class="input-group">
-                            <input type="text" class="form-control" aria-label="مبلغ (به نزدیکترین دلار)"
+                            <input name="q" value="{{ query }}" type="text" class="form-control" aria-label="مبلغ (به نزدیکترین دلار)"
                                    placeholder="جستجو محصولات......">
-                            <div class="input-group-append selective">
-                                <select name="collection" id="collection-option" data-option="collection-option"
-                                        class="single-option-selector">
-                                    <option value="all">تمام مجموعه</option>
-                                    <option value="cleaner">پاک کننده</option>
-                                    <option value="electronics">التکرونیکی</option>
-                                    <option value="fashion">مد روز</option>
-                                    <option value="grocery">خواربار</option>
-                                    <option value="plumbing">لوله کشی</option>
-                                    <option value="sports">ورزشی</option>
-                                    <option value="tools">ابزارها</option>
-                                </select>
-                            </div>
+                            
                             <div class="input-group-append">
-                                <a class="btn btn_inverse" href="#"> جستجو <i class="fa fa-search"
-                                                                              aria-hidden="true"></i></a>
+                                <button class="btn btn_inverse"type="submit"> جستجو <i class="fa fa-search"
+                                                                              aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </form>
@@ -144,7 +115,9 @@
                     {% endif %}
                 </div>
             </div>
+            
         </div>
+        
     </div>
 
 </div>

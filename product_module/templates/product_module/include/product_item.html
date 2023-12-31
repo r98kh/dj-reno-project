@@ -1,25 +1,21 @@
+{% load currency %}
 <div class="col-md-4 col-6 col-grid-box">
     <div class="product-box" data-aos="zoom-out">
         <div class="img-wrapper">
             <div class="front">
-                <a href="#"><img src="{{ product.image.url }}" class="img-fluid" alt=""></a>
-                <div>
-                    <a href="#" data-toggle="modal" data-target="#quick-view" class="add_hover add_search"
-                       title="مشاهده سریع"><i class="fa fa-search" aria-hidden="true"></i></a>
-                    <a href="#" title="لیست علاقه" class="add_hover add_wish"><i class="fa fa-heart"
-                                                                                 aria-hidden="true"></i></a>
-                    <a href="#" title="سبد خرید" class="add_hover"><i class="fa fa-shopping-cart"
-                                                                      aria-hidden="true"></i></a>
-                </div>
+                <a href="{% url 'product-detail' slug=product.slug %}"><img src="{{ product.image.url }}" class="img-fluid" alt=""></a>
+
             </div>
         </div>
         <div class="product-detail">
             <div>
-                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                <a href="{% url 'product-detail' slug=product.slug %}"><h6>{{ product.title }}</h6></a>
-                <p>{{ product.short_description }}</p>
-                <h4>{{ product.price }}</h4>
+
+                <a href="{% url 'product-detail' slug=product.slug %}">
+                    <h6 style="font-weight: 900;">{{ product.title }}</h6>
+                </a>
+                <p>{{ product.description|truncatechars:100 }}</p>
+                <h4>{{ product.price|currency }}</h4>
+                <a href="{% url 'product-detail' slug=product.slug %}" class="slider_btn theme_btn btn_5" style="display: block; width: 100%;margin-top: 10px;">دیدن محصول</a>
             </div>
         </div>
     </div>

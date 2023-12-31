@@ -1,0 +1,38 @@
+{% extends 'shared/_base.html' %}
+{% block title %}
+درباره ما
+{% endblock %} 
+
+
+
+{% block content %}
+<section id="about_us" class="about_us_sec about_page cmn_bg" >
+    <ul class="plus_decore">
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="container about_sec about_sec_4">
+        <div class="row">
+            <div class="col-12">
+                <div class="con_title">
+                    <h2 data-aos="zoom-in">درباره ما</h2>
+                    <h6><span>{{ information.title }}</span></h6>
+                </div>
+            </div>
+            <div class="col-sm-8 mx-auto">
+                <div data-aos="zoom-in">
+                    <img src="/static/images/about-us.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-12">
+                <div data-aos="zoom-in">
+                    <div class="about_content">
+                        <h4 class="text-center">{{ information.description }}</h4>
+                        <p>{{ information.aboutus|linebreaksbr }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

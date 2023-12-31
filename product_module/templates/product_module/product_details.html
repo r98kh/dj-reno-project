@@ -1,4 +1,6 @@
 {% extends 'shared/_base.html' %}
+{% load currency %}
+{% load dateTimeFormater %}
 
 {% block title %}
     {{ product.title }}
@@ -26,7 +28,7 @@
                             <div class="col-lg-6">
                                 <div class="outer">
                                     <div id="big" class="owl-carousel owl-theme">
-                                        {% for item in gallery %}
+                                        {% for item in product.gallery.all %}
                                             <div class="item">
                                                 <img src="{{ item.image.url }}" alt="logo">
                                             </div>
@@ -35,7 +37,7 @@
 
                                     </div>
                                     <div id="thumbs" class="owl-carousel owl-theme">
-                                        {% for item in gallery %}
+                                        {% for item in product.gallery.all %}
                                             <div class="item">
                                                 <img src="{{ item.image.url }}" alt="logo">
                                             </div>
@@ -49,7 +51,7 @@
                                     <h4>
                                         {#                                        <del>32000 تومان</del>#}
                                         {#                                        <span>55٪ تخفیف</span></h4>#}
-                                        <h3>{{ product.price }}</h3>
+                                        <h3>{{ product.price|currency }}</h3>
                                         <div class="product-description border-product">
                                             <h6 class="product-title">مقدار</h6>
                                             <div class="qty-box">
@@ -83,20 +85,12 @@
                                         </div>
                                         <div class="border-product">
                                             <h6 class="product-title">مشخصات کالا</h6>
-                                            <p>{{ product.short_description }}</p>
+                                            <p>{{ product.description|truncatechars:150 }}</p>
                                         </div>
                                         <div class="border-product">
-                                            <h6 class="product-title">اشتراک گذاری</h6>
                                             <div class="product-icon">
-                                                <ul class="product-social">
-                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                                </ul>
-                                                <form class="d-inline-block">
-                                                    <button class="wishlist-btn"><i class="fa fa-heart"></i><span
+                                                <form method="get" class="d-inline-block">
+                                                    <button type="submit" class="wishlist-btn"><i class="fa fa-heart"></i><span
                                                             class="title-font">افزودن به علاقه</span></button>
                                                 </form>
                                             </div>
@@ -116,13 +110,10 @@
                                         </li>
                                         <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
                                                                 href="#top-profile" role="tab" aria-selected="false"><i
-                                                class="icofont icofont-man-in-glasses"></i>جزئیات</a>
+                                                class="icofont icofont-man-in-glasses"></i>ویژگی ها</a>
                                             <div class="material-border"></div>
                                         </li>
-                                        <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab"
-                                                                href="#top-contact" role="tab" aria-selected="false"><i
-                                                class="icofont icofont-contacts"></i>ویدئو</a>
-                                            <div class="material-border"></div>
+                                        
                                         </li>
                                         <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
                                                                 href="#top-review" role="tab" aria-selected="false"><i
@@ -135,58 +126,90 @@
                                              aria-labelledby="top-home-tab">
                                             <p>{{ product.description|linebreaksbr }}</p>
                                         </div>
-                                        <div class="tab-pane fade" id="top-profile" role="tabpanel"
-                                             aria-labelledby="profile-top-tab">
-                                            <p>{{ product.description|linebreaksbr }}</p>
-
-
+                                        <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
                                             <div class="single-product-tables">
-
                                                 <table>
                                                     <tbody>
-                                                    {% for feature in features %}
-                                                        <tr>
-                                                            <td>{{ feature.title }}</td>
-                                                            <td>{{ feature.value }}</td>
-                                                        </tr>
+                                                    {% for item in product.attribute.all %}
+                                                    <tr>
+                                                        <td>{{ item.attribute.name }}</td>
+                                                        <td>{% for value in item.values.all %}
+                                                                {{value}},
+                                                            {% endfor %}
+                                                        </td>
+                                                    </tr>
                                                     {% endfor %}
-
                                                     </tbody>
                                                 </table>
+                                            
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade" id="top-contact" role="tabpanel"
-                                             aria-labelledby="contact-top-tab">
-                                            <div class="mt-3 text-center">
-                                                <iframe width="560" height="315"
-                                                        src="https://www.youtube.com/embed/BUWzX78Ye_8"
-                                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="tab-pane fade" id="top-review" role="tabpanel"
                                              aria-labelledby="review-top-tab">
+                                             <div class="comment-list blog_comment">
+                                                {% for comment in comments %}
+                                                <div class="comment_sec">
+                                                    <article class="row">
+                                                      <div class="col-12">
+                                                        <div class="blog_center">
+                                                          <div class="blog_user arrow left">
+                                                            <div class="panel-body">
+                                                              <header class="text-left">
+                                                                <div class="comment-user">
+                                                                  <i class="fa fa-user"></i>
+                                                                  <h6>{{ comment.user }}</h6>
+                                                                </div>
+                                                                <div class="comment-date">
+                                                                  <i class="fa fa-clock-o"></i>
+                                                                  <h6>{{ comment.created_date|date:"F j" }}</h6>
+                                                                </div>
+                                                              </header>
+                                                              <div class="comment-post">
+                                                                <p>
+                                                                    {{ comment.message|linebreaksbr }}
+                                                                </p>
+                                                              </div>
+                                                            
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </article>
+                                                    <!--Comment Sec Start-->
+                                                    
+                                                    <!--Comment Sec End-->
+                                                  </div>
+                                                {% endfor %}
+                                                
+                                                
+                                              </div>
                                             <form method="post" class="theme-form">
                                                 {% csrf_token %}
                                                 <div class="form-row">
-                                                    <div class="col-md-12">
-                                                        <div class="media">
-                                                            <label>امتیاز</label>
-                                                            <div class="media-body ml-3">
-                                                                <div class="rating three-star comment_rate"><i
-                                                                        class="fa fa-star"></i> <i
-                                                                        class="fa fa-star"></i> <i
-                                                                        class="fa fa-star"></i> <i
-                                                                        class="fa fa-star"></i> <i
-                                                                        class="fa fa-star"></i></div>
-                                                            </div>
-                                                        </div>
+                                                    
+                                                    {% if user.is_authenticated %}
+
+                                                    {% for field in comment_form %}
+                                                    <div class="col-md-12" style="margin-top: 5px;">
+                                                        <label>{{ field.label }}</label>
+                                                        {{ field }}
                                                     </div>
-                                                    {{ comments }}
+                                                    {% endfor %}
+                                                    
                                                     <div class="col-md-12">
-                                                        <a class="theme_btn review_btn" href="#">ثبت نظر خود
+                                                        <button class="theme_btn review_btn">ثبت نظر خود
+                                                            <span class="theme_btn_eff"></span>
+                                                        </button>
+                                                    </div>
+                                                    {% else %}
+                                                    <div class="col-md-12" style="margin-top: 5px;display: flex;align-items: center;flex-direction: column;">
+                                                        <p>برای ثبت نظر ابتدا وارد شوید</p>
+                                                        <a class="theme_btn review_btn" href="{% url 'account_login' %}">ورود به سایت
                                                             <span class="theme_btn_eff"></span>
                                                         </a>
                                                     </div>
+                                                    {% endif %}
                                                 </div>
                                             </form>
                                         </div>
@@ -210,11 +233,10 @@
                                 <div class="collection-collapse-block-content">
                                     <div class="collection-brand-filter">
                                         <ul class="category-list">
-                                            <li><a href="#">دریل چکشی</a></li>
-                                            <li><a href="#">ساندرز اوربیتال</a></li>
-                                            <li><a href="#">پیچ گوشتی</a></li>
-                                            <li><a href="#">دستگاه حفاری</a></li>
-                                            <li><a href="#">تجهیزات جانبی</a></li>
+                                            {% for brand in brands %}
+                    <li><a href="{% url 'product-brand-list' brand=brand.title %}">{{ brand.title }}</a></li>
+
+                    {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
@@ -319,33 +341,10 @@
                             <h5 class="title-border">محصول جدید</h5>
                             <div class="offer-slider slide-1 collection-filter-block">
                                 <div class="mb-0">
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="/static/images/pro/1.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
-                                    </div>
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="/static/images/pro/2.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
-                                    </div>
-                                    <div class="media">
-                                        <a href="#"><img class="img-fluid" src="/static/images/pro/3.jpg" alt=""></a>
-                                        <div class="media-body align-self-center">
-                                            <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                    class="fa fa-star"></i></div>
-                                            <a href="#"><h6>پیراهن پنبه ای شیک مناسب</h6></a>
-                                            <h4>500000تومان</h4></div>
-                                    </div>
+                                    {% for product in new_product %}
+                                    {% include 'product_module/include/product_small_item.html' %} 
+                                    {% endfor %}
+
                                 </div>
                             </div>
                         </div>

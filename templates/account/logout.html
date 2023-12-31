@@ -1,0 +1,37 @@
+{% extends 'shared/_base.html' %} {% load addClass %} {% block title %} signup
+{% endblock %} {% block content %}
+<!-- section start -->
+<section class="login-page section-b-space cmn_bg_yellow">
+  <ul class="plus_decore">
+    <li></li>
+    <li></li>
+  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>ایجاد حساب</h3>
+        <div class="theme-card">
+          <form
+            method="post"
+            class="theme-form"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              width: 100%;
+            "
+          >
+            {% csrf_token %}
+            <p>آیا مطمئن هستید؟</p>
+            <button class="btn btn-solid" id="mc-submitsa" type="submit">
+              خروج
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section End -->
+{% endblock %}

@@ -1,0 +1,16 @@
+{% load currency %}
+
+<div class="media">
+    <a href="{% url 'product-detail' slug=product.slug %}"
+      ><img
+        class="img-fluid"
+        src="{{ product.image.url }}"
+        alt=""
+    /></a>
+    <div class="media-body align-self-center">
+      
+      
+      <a href="{% url 'product-detail' slug=product.slug %}"><h6>{{ product.title }}</h6></a>
+      <h4>{{ product.price|currency }}</h4>
+    </div>
+  </div>

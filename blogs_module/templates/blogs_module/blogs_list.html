@@ -46,13 +46,25 @@
         <!-- pagination Start -->
         <div class="pagination_sec">
             <div class="content_detail__pagination cdp text-center">
-                <a href="#" class="cdp_i"><i class="fa fa-angle-double-left" aria-hidden="true"></i>قبلی</a>
-                <a href="#" class="cdp_i">1</a>
-                <a href="#" class="cdp_i">2</a>
-                <a href="#" class="cdp_i">3</a>
-                <a href="#" class="cdp_i">بعدی<i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                {% if page_obj.has_previous %}
+    <!-- <li><a onclick="fillPage({{ page_obj.previous_page_number }})">«</a></li> -->
+    <a href="?page={{page_obj.previous_page_number}}" class="cdp_i"><i class="fa fa-angle-double-left"
+        aria-hidden="true"></i>قبلی</a>
+{% endif %}
+            {% for pageNumber in paginator.page_range %}
+
+                <a href="?page={{ pageNumber }}" class="cdp_i">{{ pageNumber }}</a>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+    <!-- <li><a onclick="fillPage({{ page_obj.next_page_number }})">&raquo;</a></li> -->
+    <a href="?page={{ page_obj.next_page_number }}" class="cdp_i">بعدی<i class="fa fa-angle-double-right"
+        aria-hidden="true"></i></a>
+{% endif %}
+                
             </div>
         </div>
+
         <!-- pagination End -->
     </section>
     <!-- News Start -->

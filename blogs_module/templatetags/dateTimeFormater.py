@@ -9,4 +9,4 @@ months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augus
 @register.filter(name='dateFormat')
 def date_format(date):
     year, month, day = str(date).split('-')
-    return months[int(month)], year , day
+    return months[int(month)-1], year , day

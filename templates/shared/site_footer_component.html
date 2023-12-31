@@ -13,7 +13,7 @@
                             </div>
                             <div class="con_text">
                                 <h4>تماس با ما</h4>
-                                <h6>+1 123-456-7890</h6>
+                                <h6> {{ aboutus.phone }}</h6>
                             </div>
                         </div>
                     </div>
@@ -38,12 +38,14 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-12">
-                <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
+                <form
                       class="auth-form needs-validation" method="post" id="mc-embedded-subscribe-form"
                       name="mc-embedded-subscribe-form" target="_blank">
+                    {% csrf_token %}
                     <div class="input-group form-group">
-                        <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" required="required"
-                               placeholder="ایمیل خود را وارد کنید">
+                        {{form.email}}
+                        <!-- <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" required="required"
+                               placeholder="ایمیل خود را وارد کنید"> -->
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" id="mc-submit" type="submit">اشتراک</button>
                         </div>
@@ -65,15 +67,15 @@
                             <h3>درباره ما</h3>
                         </div>
                         <div class="footer-contant">
-                            <img src="/static/images/ecommerce/Footer-logo.png" class="foot_logo" alt="">
-                            <p>لورم ایپسوم به راحتی متن چاپ و صنعت تایپ تنظیم می کند.</p>
+                            <img src="{{ aboutus.logo.url }}" class="foot_logo" alt="">
+                            <p>{{ aboutus.description }}</p>
                             <div class="footer_social">
                                 <div>
                                     <ul>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        {% for item in aboutus.social_media.all %}
+                                        <li><a href="{{ item.url }}"><i class="fa fa-{{ item.name }}" aria-hidden="true"></i></a></li>
+                                        {% endfor %}
+
                                     </ul>
                                 </div>
                             </div>
@@ -84,39 +86,22 @@
                     <div class="footer_second">
                         <div>
                             <div class="footer-title">
-                                <h3>حساب من</h3>
+                                <h3>لینک های مفید</h3>
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>لیست علاقه مندی ها</a>
+                                    <li><a href="{% url 'homePage' %}"><i class="fa fa-chevron-circle-right"></i>خانه</a>
                                     </li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>تی و سی</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>نکات حقوقی</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>تماس با ما</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>جزئیات وبلاگ</a></li>
+                                    <li><a href="{% url 'products-list' %}"><i class="fa fa-chevron-circle-right"></i>فروشگاه</a></li>
+                                    <li><a href="{% url 'blogs-list-view' %}"><i class="fa fa-chevron-circle-right"></i>وبلاگ</a></li>
+                                    <li><a href="{% url 'contactus_page' %}"><i class="fa fa-chevron-circle-right"></i>تماس با ما</a></li>
+                                    <li><a href="{% url 'aboutus_page' %}"><i class="fa fa-chevron-circle-right"></i>درباره ما</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer_second">
-                        <div>
-                            <div class="footer-title">
-                                <h3>اطلاعات</h3>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>تمام مجموعه</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>تحویل</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>توجه جستجو</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>بهترین فروشنده</a></li>
-                                    <li><a href="#"><i class="fa fa-chevron-circle-right"></i>محصول جدید</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_forth">
                         <div class="footer-title">
@@ -124,13 +109,11 @@
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>مد پا نسخه ی نمایشی فروشگاه نسخه
-                                    ی نمایشی فروشگاه 3654123
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ aboutus.address }}
                                 </li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>تماس با ما: 123-456-7898</li>
-                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i>ایمیل به ما: Support@test.com
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>تماس با ما: {{ aboutus.phone }}</li>
+                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i>ایمیل به ما: {{ aboutus.email }}
                                 </li>
-                                <li><i class="fa fa-fax" aria-hidden="true"></i>فکس: 123456</li>
                             </ul>
                         </div>
                     </div>
@@ -144,16 +127,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="cop_p">
-                        <p>2018 - 19 کپی رایت توسط راست چین بومی سازی توسط آرش خادملو</p>
+                        <p> © تمام حقوق محفوظ است</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="copy_link">
-                        <ul>
-                            <li><a href="#">شرایط و ضوابط</a></li>
-                            <li><a href="#">حریم خصوصی</a></li>
-                            <li><a href="#">تماس با ما</a></li>
-                        </ul>
+                        <p>رسول خورشیدی</p>
                     </div>
                 </div>
             </div>
@@ -171,67 +150,3 @@
 </div>
 <!-- Tap on Ends -->
 
-
-<!-- Quick-view modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content quick-view-modal">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="row">
-                    <div class="col-lg-6 col-xs-12">
-                        <div class="quick-view-img">
-                            <img src="/static/images/pro/9.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 rtl-text">
-                        <div class="product-right">
-                            <h2>دریل چکشی</h2>
-                            <h3>32000 تومان</h3>
-                            <div class="border-product">
-                                <h6 class="product-title">جزئیات محصول</h6>
-                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است</p>
-                            </div>
-                            <div class="product-description border-product">
-                                <div class="size-box">
-                                    <ul>
-                                        <li class="active"><a href="#">s</a></li>
-                                        <li><a href="#">m</a></li>
-                                        <li><a href="#">l</a></li>
-                                        <li><a href="#">xl</a></li>
-                                    </ul>
-                                </div>
-                                <h6 class="product-title">مقدار</h6>
-                                <div class="qty-box">
-                                    <div class="input-group">
-                                            <span class="input-group-prepend">
-                                                <button type="button" class="btn quantity-left-minus" data-type="minus"
-                                                        data-field="">
-                                                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                                </button>
-                                            </span>
-                                        <input type="text" name="quantity" class="form-control input-number" value="1">
-                                        <span class="input-group-prepend">
-                                                <button type="button" class="btn quantity-right-plus" data-type="plus"
-                                                        data-field="">
-                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                                </button>
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-buttons">
-                                <a href="#" class="btn btn-solid">سبد خرید</a>
-                                <a href="#" class="btn btn-solid">نمایش جزئیات</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Quick-view modal popup end-->

@@ -151,6 +151,27 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+# Ignore database migrations
+**/migrations/
+
+# Ignore pycache directories
+**/__pycache__/
+**/*.pyc
+
+# Ignore South migrations
+**/south_migrations/
+
+# Ignore generated HTML documentation
+docs/_build/
+
+# Ignore the virtual environment
+venv/
+
+# Ignore image files
+*.jpg
+*.jpeg
+*.png
+*.gif
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

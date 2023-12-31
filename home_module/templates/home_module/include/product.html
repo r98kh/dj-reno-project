@@ -1,36 +1,24 @@
+{% load currency %}
+
 <div class="item">
     <div class="product-box">
         <div class="img-wrapper">
             <div class="front">
-                <a href="{% url 'product-detail' slug=product.slug %}"><img src="{{ product.image.url }}"
+                <div class="slick-slid" style="max-width: 200px;">
+                <a href="{% url 'product-detail' slug=product.slug %}"><img style="height: 274px;" src="{{ product.image.url }}"
                                                                             class="img-fluid" alt=""></a>
-                <div>
-                    <a href="{% url 'product-detail' slug=product.slug %}" data-toggle="modal" data-target="#quick-view"
-                       class="add_hover add_search" title="مشاهده سریع">
-                        <i class="ti-search" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" title="لیست علاقه" class="add_hover add_wish"><i
-                            class="ti-heart" aria-hidden="true"></i></a>
-                    <a href="#" title="سبد خرید" class="add_hover"><i
-                            class="ti-shopping-cart" aria-hidden="true"></i></a>
-                </div>
+                                                                        </div>
             </div>
         </div>
         <div class="product-detail">
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-            </div>
+            
             <a href="{% url 'product-detail' slug=product.slug %}">
                 <h6>{{ product.title }}<h6>
             </a>
-            <p>
-                {{ product.short_description }}
-            </p>
-            <h4>{{ product.price }}</h4>
+            
+            <h4>{{ product.price|currency }}</h4>
+            <a href="{% url 'product-detail' slug=product.slug %}" class="slider_btn theme_btn btn_5" style="display: block; width: 100%;margin-top: 10px;">دیدن محصول</a>
+
         </div>
     </div>
 </div>

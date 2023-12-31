@@ -1,0 +1,9 @@
+<form method="get" action="{% url 'product_search' %}">
+    <input type="text" name="q" value="{{ query }}" placeholder="Search products...">
+    <button type="submit">Search</button>
+</form>
+
+{% for product in results %}
+    <h1>{{ product.title }} </h1>
+    <p>{{ product.description }}</p>
+{% endfor %}

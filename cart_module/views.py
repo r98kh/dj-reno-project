@@ -1,13 +1,18 @@
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-
+from django.template.loader import render_to_string
 from cart_module.models import OrderDetail, Order
 from product_module.models import Product
+from django.views.generic.base import View
+from user_module import forms,models
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 # Create your views here.
-
 def add_product_to_order(request: HttpRequest):
     product_id = int(request.GET.get('product_id'))
     count = int(request.GET.get('count'))
@@ -53,22 +58,26 @@ def add_product_to_order(request: HttpRequest):
             'icon': 'error'
         })
 
-
-# class shoppingCart(ListView):
-#     model = Order
-#     template_name = 'cart_module/shopping_cart.html'
-#
-#     def get_context_data(self, *args, **kwargs):
-#         context = super(shoppingCart, self).get_context_data(*args, **kwargs)
-#         user_id = self.request.user.id
-#
-#         return context
-
+@login_required
 def shopping_cart(request: HttpRequest):
     user_id = request.user.id
+    detail_id = request.GET.get('detail_id')
+    quantity = request.GET.get('quantity')
+
+    if quantity and int(quantity) > 0:
+        order_detail = OrderDetail.objects.filter(id=detail_id).first()
+        order_detail.count = quantity
+        order_detail.save()
+
+    elif detail_id:
+        OrderDetail.objects.filter(id=detail_id, order__is_paid=False,
+                                                            order__user_id=request.user.id).delete()
+
     try:
         user_order, created = Order.objects.get_or_create(user_id=user_id, is_paid=False)
-        cart_detail, created = OrderDetail.objects.get_or_create(order_id=user_order.id).all()
+        # print(user_order)
+        # cart_detail, created = OrderDetail.objects.get_or_create(order_id=user_order.id)
+        cart_detail = OrderDetail.objects.filter(order_id=user_order.id).all()
         total = 0
         for i in cart_detail:
             total += i.get_total_price()
@@ -83,3 +92,66 @@ def shopping_cart(request: HttpRequest):
             'total':0
         }
     return render(request, 'cart_module/shopping_cart.html', context)
+
+@method_decorator(login_required, name='dispatch')
+class checkoutView(View):
+    def get(self, request):
+        
+        
+        billingdetails = models.BillingDetails.objects.filter(user_id=request.user.id).first()
+        user = models.CustomUser.objects.filter(id=request.user.id).first()
+        user_form = forms.UserForm(instance=user)
+        billingdetails_form = forms.BillingDetailsForm(instance=billingdetails)
+        user_order, created = Order.objects.get_or_create(user_id=request.user.id, is_paid=False)
+
+        order_detail = OrderDetail.objects.filter(order_id=user_order)
+        total = 0
+        for i in order_detail:
+            total += i.get_total_price()
+        context = {
+            'order_detail':order_detail,
+            'total': total,
+            'user_form': user_form,
+            'billingdetails_form': billingdetails_form,
+        }
+
+        return render(request, 'cart_module/checkout.html', context)
+        
+
+    def post(self, request):
+        billingdetails, created = models.BillingDetails.objects.get_or_create(user_id=request.user.id)
+        user = models.CustomUser.objects.filter(id=request.user.id).first()
+        order_detail = OrderDetail.objects.filter(order__user_id=request.user.id)
+
+        user_form = forms.UserForm(request.POST, request.FILES,instance=user)
+        billingdetails_form = forms.BillingDetailsForm(request.POST, request.FILES,instance=billingdetails)
+
+        if billingdetails_form.is_valid() and user_form.is_valid():
+            user_form.save(commit=True)
+            billingdetails_form.save(commit=False)
+            billingdetails_form.user = request.user
+            billingdetails_form.save(commit=True)
+            
+            current_order, created = Order.objects.get_or_create(is_paid=False, user_id=request.user.id)
+            for detail in order_detail:
+                detail.product.quantity_sold += 1
+                detail.product.save()
+                detail.final_price = detail.product.price
+                detail.save()
+            current_order.is_paid = True
+            current_order.payment_data = '2022-06-04'
+            current_order.save()
+
+            return render(request, 'cart_module/success.html')
+        
+        order_detail = OrderDetail.objects.filter(order__user_id=request.user.id)
+        total = 0
+        for i in order_detail:
+            total += i.get_total_price()
+        context = {
+            'order_detail':order_detail,
+            'total': total,
+            'user_form': user_form,
+            'billingdetails_form': billingdetails_form,
+        }
+        return render(request, 'cart_module/checkout.html', context)
